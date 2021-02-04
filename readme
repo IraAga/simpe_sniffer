@@ -1,0 +1,13 @@
+Usage: ./sniffer [OPTION] [VALUE]
+For a selected number of packet to be captured the following files are created
+	2 Files are created after the end of capturing
+		1) pfp_log: Contains all the network flows and payload size sequneces
+					found in the given pcap file
+		2) pkt_log: Per Packet information
+		3) dumpfile: Contains the packets the got captured in a pcap format able
+					 to be opened by Wireshark for further analysis 
+
+Available Options:
+		-f		Apply a bpf filter 
+		-n 		Number of total packets to capture, if no number is
+				specified the capture stops by pressing Control^C
