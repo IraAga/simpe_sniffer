@@ -7,7 +7,7 @@ main (int argc, char *argv[])
 	int opt;
 	int i;
 	char *filter_expression;	/* reading the fiter the user provides us with */
-	int num_pkts;			/* number of packets to be captured */
+	int num_pkts;				/* number of packets to be captured */
 
 	char *dev, errbuf[PCAP_ERRBUF_SIZE];	
 	char ip[13];				/* capture device's ip address */
@@ -17,8 +17,8 @@ main (int argc, char *argv[])
 	bpf_u_int32 mask_raw;		/* gonna give it to pcap_lookupnet(); */
 	int lookup_net;
 	pcap_t *handle;				/* handler for capturing */
-	struct bpf_program filter; /* compiled version of filter expression */
-	struct in_addr addr;       /* Internet address */
+	struct bpf_program filter; 	/* compiled version of filter expression */
+	struct in_addr addr;       	/* Internet address */
 	pcap_if_t *interfaces;
 	pcap_if_t *tmp_i; 			/* tmep for iterating through interfaces */
 	pcap_dumper_t *dumpfile;	/* We use this in order to save the live captured pacekt to a pcap file */
@@ -141,12 +141,6 @@ main (int argc, char *argv[])
 	print_flows();
 
 	fclose(pkt_log);
-
-	// printf("--------------------------\n");
-	// printf("Device: %s\n", dev);
-	// printf("Ip: %s\n", ip);
-	// printf("Subnet mask:%s\n", subnet_mask);
-	// printf("--------------------------\n");
 
 	pcap_freecode(&filter);
 	pcap_dump_close(dumpfile);

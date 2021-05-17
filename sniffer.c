@@ -37,7 +37,6 @@ pkt_handler (u_char *args, const struct pcap_pkthdr *header, const u_char *packe
 
 	eth_header = (struct ethhdr *)packet;
 
-	// fprintf(stdout, "\n____________________\n\n> 	_%d_\n", count);
 	pcap_dump(args, header, packet);
 
 	/* packet size */
@@ -76,8 +75,7 @@ pkt_handler (u_char *args, const struct pcap_pkthdr *header, const u_char *packe
 	dst_ip = strdup(inet_ntoa(pkt_addr));
 
 	/* Payload Size */
-	// printf("--- Payload ---\n" );
-	eth_header_size = 14;		/* always 14 bytes */
+	eth_header_size = 14;				/* always 14 bytes */
 	ip_header_size = (ip_header->ihl) * 4;
 	if (strcmp(protocol, "TCP") == 0) {
 		struct tcphdr *proto_header = NULL;
@@ -113,6 +111,7 @@ pkt_handler (u_char *args, const struct pcap_pkthdr *header, const u_char *packe
 	fprintf(pkt_log, " %-15s " , src_ip);
 	fprintf(pkt_log, "%-16s", dst_ip);
 	fprintf(pkt_log, "%-15s\n", ip_version);
+
 	/* After updating the logfile increase the counter */
 	count++;
 }
@@ -165,8 +164,8 @@ insert_flow (char *ip1, char *ip2, int payload)
 	tmp->pls = NULL;			
 	tmp->tail = NULL;
 
-	tmp->next = fl_list;	 /* next of new head points to old head */
-	fl_list = tmp;			 /* new node becomes the head */
+	tmp->next = fl_list;	 	/* next of new head points to old head */
+	fl_list = tmp;			 	/* new node becomes the head */
 
 	/* new flow means new sequence of payloads for our new flow
 	 *			- create the first node of payload list
