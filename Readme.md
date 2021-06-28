@@ -1,5 +1,5 @@
 ## Description 
-   This is my simple sniffer. Makes use of libpcap provided functionality to read packets from the first available network interface, dumps them to a pcap file and generates all the networks flows from the captured packets. After a successful execution of the sniffer, 2 additional log files are generated.
+   This is my simple sniffer. Makes use of libpcap's provided functionality to read packets from the first available network interface, dumps them to a pcap file and generates all the networks flows from the captured packets. After a successful execution of the sniffer, 2 additional log files are generated.
    
   #### Available Options:
         -f <filter> : Apply a bpf filter while capturing.
